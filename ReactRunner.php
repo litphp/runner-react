@@ -48,7 +48,7 @@ class ReactRunner
             ? $config
             : BoltContainerConfiguration::createContainer($config + ReactConfiguration::default());
 
-        Factory::of($container)->get(static::class)->work();
+        Factory::of($container)->getOrProduce(static::class)->work();
     }
 
     public function work()
