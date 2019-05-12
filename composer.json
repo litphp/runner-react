@@ -18,7 +18,7 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "litphp/bolt": "^0.9@dev",
+        "litphp/bolt": "^0.9",
         "react/http": "^0.8.3"
     },
     "extra": {
