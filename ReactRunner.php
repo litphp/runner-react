@@ -12,6 +12,9 @@ use React\Http\Server;
 use React\Http\StreamingServer;
 use React\Socket\Server as SocketServer;
 
+/**
+ * react runner
+ */
 class ReactRunner
 {
     /**
@@ -29,9 +32,10 @@ class ReactRunner
 
     /**
      * ReactRunner constructor.
-     * @param Server|StreamingServer $server
-     * @param LoopInterface $loop
-     * @param SocketServer $socketServer
+     *
+     * @param Server|StreamingServer $server       React server.
+     * @param LoopInterface          $loop         React eventloop.
+     * @param SocketServer           $socketServer React socket server.
      */
     public function __construct($server, LoopInterface $loop, SocketServer $socketServer)
     {
@@ -42,6 +46,11 @@ class ReactRunner
         $this->server = $server;
     }
 
+    /**
+     * run a bolt app with react
+     *
+     * @param array $config The application configuration.
+     */
     public static function run($config = [])
     {
         $container = $config instanceof ContainerInterface
@@ -55,7 +64,7 @@ class ReactRunner
         $instance->work();
     }
 
-    public function work()
+    protected function work()
     {
         $this->server->listen($this->socketServer);
         $this->loop->run();

@@ -16,8 +16,16 @@ use React\Http\Server;
 use React\Http\StreamingServer;
 use React\Socket\Server as SocketServer;
 
+/**
+ * react runner configuration class
+ */
 class ReactConfiguration
 {
+    /**
+     * Return default configuration for react runner.
+     *
+     * @return array
+     */
     public static function default()
     {
         $serverConfiguration = C::provideParameter([
